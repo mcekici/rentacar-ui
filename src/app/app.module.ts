@@ -8,6 +8,9 @@ import { ProductComponent } from './components/product/product.component';
 import { CategoryComponent } from './components/category/category.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CarComponent } from './components/car/car.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ContentComponent } from './components/content/content.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { CarComponent } from './components/car/car.component';
     ProductComponent,
     CategoryComponent,
     NaviComponent,
-    CarComponent
+    CarComponent,
+    MenuComponent,
+    FooterComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

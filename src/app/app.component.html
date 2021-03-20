@@ -1,12 +1,10 @@
-<div class="container">
+<header class="app-header fixed-top">
   <app-navi></app-navi>
-  <div class="row">
-    <div class="col-3">
-      <app-category></app-category>
-    </div>
-    <div class="col-9">
-      <app-car></app-car>
-    </div>
-  </div>
-  <router-outlet></router-outlet>
+  <app-menu></app-menu>
+</header>
+
+<div class="app-wrapper">
+  <app-content></app-content>
+  <app-footer></app-footer>
 </div>
+<router-outlet></router-outlet>
