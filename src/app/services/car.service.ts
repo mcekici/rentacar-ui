@@ -11,28 +11,28 @@ import { ListResponseModel } from '../models/listResponseModel';
 })
 export class CarService {
 
-  apiUrl = 'http://192.168.0.17:81/api/';
+  apiUrl = 'http://192.168.0.17:81/api/cars/';
 
   constructor(private httpClient: HttpClient) { }
 
   
   getAllDto():Observable<ListResponseModel<CarDto>> {
-    let newUrl = this.apiUrl + "cars/getalldto"
+    let newUrl = this.apiUrl + "getalldto"
     return this.httpClient.get<ListResponseModel<CarDto>>(newUrl);
   }
 
   getAll():Observable<ListResponseModel<Car>> {
-    let newUrl = this.apiUrl + "cars/getall"
+    let newUrl = this.apiUrl + "getall"
     return this.httpClient.get<ListResponseModel<Car>>(newUrl);
   }
 
   getDto(carId:number):Observable<DataResponseModel<CarDto>> {
-    let newUrl = this.apiUrl + "cars/getdto?carId=" + carId;
+    let newUrl = this.apiUrl + "getdto?carId=" + carId;
     return this.httpClient.get<DataResponseModel<CarDto>>(newUrl);
   }
 
   get(carId:number):Observable<DataResponseModel<Car>> {
-    let newUrl = this.apiUrl + "cars/getdto?carId=" + carId;
+    let newUrl = this.apiUrl + "getdto?carId=" + carId;
     return this.httpClient.get<DataResponseModel<Car>>(newUrl);
   }
 

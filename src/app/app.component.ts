@@ -7,6 +7,6 @@ import "bootswatch/dist/United/bootstrap.min.css";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'northwind';
+  title = 'rentacar';
   user: string = "Mehmet"
 }
