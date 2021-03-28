@@ -6,7 +6,7 @@
           <a
             id="sidepanel-toggler"
             class="sidepanel-toggler d-inline-block d-xl-none"
-            href="#"
+            onclick="sidePanelChange()"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -271,7 +271,7 @@
                 <hr class="dropdown-divider" />
               </li>
               <li>
-                <a class="dropdown-item" href="login.html">Log Out</a>
+                <a class="dropdown-item" href="panel/login" (click)="logout()">Log Out</a>
               </li>
             </ul>
           </div>

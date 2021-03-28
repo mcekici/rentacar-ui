@@ -11,7 +11,7 @@ import { ListResponseModel } from '../models/listResponseModel';
 })
 export class CarService {
 
-  apiUrl = 'http://192.168.0.17:81/api/cars/';
+  apiUrl = 'http://192.168.1.111:81/api/cars/';
 
   constructor(private httpClient: HttpClient) { }
 

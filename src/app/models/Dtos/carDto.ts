@@ -1,11 +1,9 @@
 export interface CarDto{
     id:number;
-    category:string;
-    brand:string;
+    plate:string
     name:string;
-    color:string;
     modelYear:number;
+    class:string;
     dailyPrice:number;
     depositFee:number;
-    description:string;
 }

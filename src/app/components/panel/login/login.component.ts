@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
   login(){
     if(this.loginForm.valid){
       let model = Object.assign({},this.loginForm.value)
-      this.authService.adminLogin(model).subscribe(response=>{
-        localStorage.setItem("userName",response.userName)
+      this.authService.login(model).subscribe(response=>{
+        localStorage.setItem("token",response.token);
         this.router.navigate(["panel"]) 
       })
     }

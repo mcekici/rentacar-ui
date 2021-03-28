@@ -20,7 +20,6 @@ const routes: Routes = [
     {path:"cars/add",component:CarAddComponent},
     {path:"cars/add/:carId",component:CarAddComponent}
   ]},
-  
 ];
 
 @NgModule({
