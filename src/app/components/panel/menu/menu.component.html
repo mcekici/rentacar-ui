@@ -1,11 +1,19 @@
 <div id="app-sidepanel" class="app-sidepanel">
   <div id="sidepanel-drop" class="sidepanel-drop"></div>
   <div class="sidepanel-inner d-flex flex-column">
-    <a onclick="sidePanelChange()" id="sidepanel-close" class="sidepanel-close d-xl-none"
+    <a
+      onclick="sidePanelChange()"
+      id="sidepanel-close"
+      class="sidepanel-close d-xl-none"
       >&times;</a
     >
     <div class="app-branding">
-      <a class="app-logo" href="index.html"><img class="logo-icon mr-2" src="assets/images/app-logo.svg" alt="logo"/>
+      <a class="app-logo" href="index.html"
+        ><img
+          class="logo-icon mr-2"
+          src="assets/images/app-logo.svg"
+          alt="logo"
+        />
         <span class="logo-text">Yönetim Paneli</span></a
       >
     </div>
@@ -45,13 +53,19 @@
           >
             <ul class="submenu-list list-unstyled">
               <li class="submenu-item">
-                <a class="submenu-link" routerLink="/panel/cars">Araç Listesi</a>
+                <a class="submenu-link" routerLink="/panel/brands"
+                  >Marka ve Seriler</a
+                >
               </li>
               <li class="submenu-item">
-                <a class="submenu-link" href="account.html">Araç Sınıfları</a>
+                <a class="submenu-link" routerLink="/panel/cars"
+                  >Araç Listesi</a
+                >
               </li>
               <li class="submenu-item">
-                <a class="submenu-link" routerLink="/panel/cars/add">Yeni araç Ekle</a>
+                <a class="submenu-link"
+                  >Özellik Yönetimi</a
+                >
               </li>
             </ul>
           </div>
@@ -88,7 +102,7 @@
               </li>
               <li class="submenu-item">
                 <a class="submenu-link" href="settings.html"
-                  >Teslim Edilenler</a
+                  >Lokasyonlar</a
                 >
               </li>
             </ul>
@@ -157,14 +171,10 @@
                 >
               </li>
               <li class="submenu-item">
-                <a class="submenu-link" href="account.html"
-                  >Giden Kutusu</a
-                >
+                <a class="submenu-link" href="account.html">Giden Kutusu</a>
               </li>
               <li class="submenu-item">
-                <a class="submenu-link" href="account.html"
-                  >Mail Gönder</a
-                >
+                <a class="submenu-link" href="account.html">Mail Gönder</a>
               </li>
             </ul>
           </div>
@@ -230,7 +240,9 @@
                 >
               </li>
               <li class="submenu-item">
-                <a class="submenu-link" href="account.html">Gönderilen Mesajlar</a>
+                <a class="submenu-link" href="account.html"
+                  >Gönderilen Mesajlar</a
+                >
               </li>
             </ul>
           </div>

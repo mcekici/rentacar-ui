@@ -58,7 +58,7 @@ export class CarAddComponent implements OnInit {
   }
 
   getAllBrands(){
-    this.brandService.getAll().subscribe(response=>{
+    this.brandService.getBrands().subscribe(response=>{
       this.brands = response.data
       console.log(this.brands)
     })

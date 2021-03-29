@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CarDto } from 'src/app/models/Dtos/carDto';
-import { Brand } from 'src/app/models/Entites/brand';
-import { BrandService } from 'src/app/services/brand.service';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
-  selector: 'app-car',
-  templateUrl: './car.component.html',
-  styleUrls: ['./car.component.css']
+  selector: 'app-car-list',
+  templateUrl: './car-list.component.html',
+  styleUrls: ['./car-list.component.css']
 })
-export class CarComponent implements OnInit {
+export class CarListComponent implements OnInit {
 
   cars: CarDto[] = [];
   dataLoaded = false;
+  filterText = "";
   constructor(
     private carService:CarService
     ) { }

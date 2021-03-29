@@ -1,0 +1,118 @@
+<div
+  *ngIf="dataLoaded == false"
+  class="spinner-border text-success"
+  role="status"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="app-content pt-3 p-md-3 p-lg-4">
+  <div class="container-xl">
+    <div class="row g-3 mb-4 align-items-center justify-content-between">
+      <div class="col-auto">
+        <h1 class="app-page-title mb-0">Araç Listesi</h1>
+      </div>
+      <div class="col-auto">
+        <div class="page-utilities">
+          <div
+            class="row g-2 justify-content-start justify-content-md-end align-items-center"
+          >
+            <div class="col-auto">
+              <form class="table-search-form row gx-1 align-items-center">
+                <div class="col-auto">
+                  <input
+                    [(ngModel)] = "filterText"
+                    type="text"
+                    id="filterText"
+                    name="searchorders"
+                    class="form-control search-orders"
+                    placeholder="Ara"
+                  />
+                </div>
+              </form>
+            </div>
+            <!--//col-->
+            <div class="col-auto">
+              <a class="btn app-btn-secondary" routerLink="/panel/cars/add">
+                Ekle
+              </a>
+            </div>
+            <div class="col-auto">
+              <a class="btn app-btn-secondary" href="#"> Download CSV </a>
+            </div>
+          </div>
+          <!--//row-->
+        </div>
+        <!--//table-utilities-->
+      </div>
+      <!--//col-auto-->
+    </div>
+    <!--//row-->
+
+    <div class="tab-content" id="orders-table-tab-content">
+      <div
+        class="tab-pane fade show active"
+        id="orders-all"
+        role="tabpanel"
+        aria-labelledby="orders-all-tab"
+      >
+        <div class="app-card app-card-orders-table shadow-sm mb-5">
+          <div class="app-card-body">
+            <div class="table-responsive">
+              <table class="table app-table-hover mb-0 text-left">
+                <thead>
+                  <tr>
+                    <th class="cell">Plaka</th>
+                    <th class="cell">Adı</th>
+                    <th class="cell">Model Yılı</th>
+                    <th class="cell">Sınıfı</th>
+                    <th class="cell">Günlük Ücret</th>
+                    <th class="cell">Depozito</th>
+                    <th class="cell">İşlemler</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let c of cars | carFilter:filterText">
+                    <td>{{ c.plate }}</td>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.modelYear }}</td>
+                    <td>{{ c.class }}</td>
+                    <td>{{ c.dailyPrice }}</td>
+                    <td>{{ c.depositFee }}</td>
+                    <td>
+                      <button
+                        routerLink="/panel/cars/detail/{{ c.id }}"
+                        class="btn btn-primary"
+                      >
+                        Görüntüle
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--//table-responsive-->
+          </div>
+          <!--//app-card-body-->
+        </div>
+        <!--//app-card-->
+        <!-- <nav class="app-pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav> -->
+        <!--//app-pagination-->
+      </div>
+      <!--//tab-pane-->
+    </div>
+    <!--//tab-content-->
+  </div>
+  <!--//container-fluid-->
+</div>

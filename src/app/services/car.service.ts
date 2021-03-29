@@ -5,13 +5,14 @@ import { DataResponseModel } from '../models/dataResponseModel';
 import { CarDto } from '../models/Dtos/carDto';
 import { Car } from '../models/Entites/car';
 import { ListResponseModel } from '../models/listResponseModel';
+import { Statics } from './statics';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarService {
 
-  apiUrl = 'http://192.168.1.111:81/api/cars/';
+  apiUrl = Statics.ApiUrl + 'cars/';
 
   constructor(private httpClient: HttpClient) { }
 

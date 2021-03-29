@@ -1,0 +1,155 @@
+<div
+  *ngIf="dataLoaded == false"
+  class="spinner-border text-success"
+  role="status"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="app-content pt-3 p-md-3 p-lg-4 mt-5">
+  <div class="container-xl">
+    <div>
+      <form [formGroup]="addForm">
+        <div class="row">
+            <input hidden type="number" value="0">
+          <div class="form-group col">
+            <select class="form-select" formControlName="">
+              <option *ngFor="let brand of brands" value="brand.id">
+                {{ brand.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group col">
+            <input class="form-control" type="text" />
+          </div>
+          <div class="form-group col-auto">
+            <button type="submit" class="form-control btn btn-primary">Ekle</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <hr/>
+    <div class="row g-3 mt-5 mb-4 align-items-center justify-content-between">
+      <div class="col-auto">
+        <h1 class="app-page-title mb-0">Marka ve Modeller</h1>
+      </div>
+      <div class="col-auto">
+        <div class="page-utilities">
+          <div
+            class="row g-2 justify-content-start justify-content-md-end align-items-center"
+          >
+            <div class="col-auto">
+              <form class="table-search-form row gx-1 align-items-center">
+                <div class="col-auto">
+                  <input
+                    [(ngModel)]="filterText"
+                    type="text"
+                    id="filterText"
+                    name="searchorders"
+                    class="form-control search-orders"
+                    placeholder="Ara"
+                  />
+                </div>
+              </form>
+            </div>
+            <!--//col-->
+            <div class="col-auto"></div>
+          </div>
+          <!--//row-->
+        </div>
+        <!--//table-utilities-->
+      </div>
+      <!--//col-auto-->
+    </div>
+    <!--//row-->
+
+    <div class="tab-content" id="orders-table-tab-content">
+      <div
+        class="tab-pane fade show active"
+        id="orders-all"
+        role="tabpanel"
+        aria-labelledby="orders-all-tab"
+      >
+        <div class="app-card app-card-orders-table shadow-sm mb-5">
+          <div class="app-card-body">
+            <div class="table-responsive">
+              <table class="table app-table-hover mb-0 text-center">
+                <thead>
+                  <tr>
+                    <th>Marka</th>
+                    <th>Seri</th>
+                    <th>İşlemler</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let s of series | brandFilter: filterText">
+                  <tr *ngIf="index === s.id">
+                    <td>
+                      <select class="form-select">
+                        <option
+                          *ngFor="let brand of brands"
+                          [selected]="brand.name === s.brandName"
+                          value="brand.id"
+                        >
+                          {{ brand.name }}
+                        </option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        class="form-control"
+                        type="text"
+                        value="{{ s.serialName }}"
+                      />
+                    </td>
+                    <td>
+                      <a class="btn btn-info mr-2" (click)="editChange(s.id)">
+                        Kaydet
+                      </a>
+                      <button (click)="editChange(0)" class="btn btn-danger">
+                        Vazgeç
+                      </button>
+                    </td>
+                  </tr>
+                  <tr *ngIf="index !== s.id">
+                    <td>{{ s.brandName }}</td>
+                    <td>{{ s.serialName }}</td>
+                    <td>
+                      <a class="btn btn-info mr-2" (click)="editChange(s.id)">
+                        Düzenle
+                      </a>
+                      <button
+                        routerLink="/panel/brands/detail/{{ s.id }}"
+                        class="btn btn-danger"
+                      >
+                        Sil
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--//table-responsive-->
+          </div>
+          <!--//app-card-body-->
+        </div>
+        <!--//app-card-->
+        <!-- <nav class="app-pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav> -->
+        <!--//app-pagination-->
+      </div>
+      <!--//tab-pane-->
+    </div>
+    <!--//tab-content-->
+  </div>
+  <!--//container-fluid-->
+</div>
